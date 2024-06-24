@@ -1,9 +1,12 @@
-{ lib, config, ... }:
-
+{
+  lib,
+  config,
+  ...
+}:
 with lib; {
   imports = [
-    (mkRenamedOptionModule [ "wsl" "automountPath" ] [ "wsl" "wslConf" "automount" "root" ])
-    (mkRenamedOptionModule [ "wsl" "automountOptions" ] [ "wsl" "wslConf" "automount" "options" ])
+    (mkRenamedOptionModule ["wsl" "automountPath"] ["wsl" "wslConf" "automount" "root"])
+    (mkRenamedOptionModule ["wsl" "automountOptions"] ["wsl" "wslConf" "automount" "options"])
   ];
 
   # See https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf for all options
@@ -90,14 +93,12 @@ with lib; {
   };
 
   config = mkIf config.wsl.enable {
+    environment.etc."wsl.conf".text = generators.toINI {} config.wsl.wslConf;
 
-    environment.etc."wsl.conf".text = generators.toINI { } config.wsl.wslConf;
-
-    warnings = optional (config.wsl.wslConf.boot.systemd && !config.wsl.nativeSystemd)
+    warnings =
+      optional (config.wsl.wslConf.boot.systemd && !config.wsl.nativeSystemd)
       "systemd is enabled in wsl.conf, but wsl.nativeSystemd is not enabled. Unless you did this on purpose, this WILL make your system UNBOOTABLE!"
-    ++ optional (config.wsl.wslConf.network.generateHosts && config.networking.extraHosts != "")
+      ++ optional (config.wsl.wslConf.network.generateHosts && config.networking.extraHosts != "")
       "networking.extraHosts has no effect if wsl.wslConf.network.generateHosts is true.";
-
   };
-
 }

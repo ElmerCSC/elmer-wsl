@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
-let
-  ver = with lib; substring 0 5 version;
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  ver = with lib; substring 0 5 version;
+in {
   imports = [
     <nixos-wsl/modules>
     "${builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${ver}.tar.gz"}/nixos"
@@ -10,10 +12,10 @@ in
 
   wsl.enable = true;
 
-  home-manager.users.nixos = { ... }: {
+  home-manager.users.nixos = {...}: {
     home = {
       stateVersion = ver;
-      packages = [ pkgs.vim ];
+      packages = [pkgs.vim];
       sessionVariables = {
         EDITOR = "vim";
         TEST_VARIABLE = "THISISATESTSTRING";

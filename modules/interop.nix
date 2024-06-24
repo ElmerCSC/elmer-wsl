@@ -1,7 +1,10 @@
-{ lib, config, ... }:
-
-with builtins; with lib;
 {
+  lib,
+  config,
+  ...
+}:
+with builtins;
+with lib; {
   options.wsl.interop = with types; {
     register = mkOption {
       type = bool;
@@ -16,12 +19,10 @@ with builtins; with lib;
     };
   };
 
-  config =
-    let
-      cfg = config.wsl.interop;
-    in
+  config = let
+    cfg = config.wsl.interop;
+  in
     mkIf config.wsl.enable {
-
       boot.binfmt.registrations = mkIf cfg.register {
         WSLInterop = {
           magicOrExtension = "MZ";
@@ -32,12 +33,9 @@ with builtins; with lib;
         };
       };
 
-      warnings =
-        let
-          registrations = config.boot.binfmt.registrations;
-        in
+      warnings = let
+        registrations = config.boot.binfmt.registrations;
+      in
         optional (!(registrations ? WSLInterop) && (length (attrNames config.boot.binfmt.registrations)) != 0) "Having any binfmt registrations without re-registering WSLInterop (wsl.interop.register) will break running .exe files from WSL2";
     };
-
-
 }

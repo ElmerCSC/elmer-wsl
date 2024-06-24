@@ -1,25 +1,25 @@
-{ runCommand
-, makeWrapper
-, lib
-, coreutils
-, daemonize
-, getent
-, gnugrep
-, systemd
-, util-linux
-, which
-, defaultUser
-, automountPath
-, ...
-}:
-let
-  mkWrappedScript =
-    { name
-    , src
-    , path
-    , ...
-    } @ args:
-    runCommand name ({ nativeBuildInputs = [ makeWrapper ]; } // args) ''
+{
+  runCommand,
+  makeWrapper,
+  lib,
+  coreutils,
+  daemonize,
+  getent,
+  gnugrep,
+  systemd,
+  util-linux,
+  which,
+  defaultUser,
+  automountPath,
+  ...
+}: let
+  mkWrappedScript = {
+    name,
+    src,
+    path,
+    ...
+  } @ args:
+    runCommand name ({nativeBuildInputs = [makeWrapper];} // args) ''
       install -Dm755 ${src} $out/bin/${name}
       patchShebangs $out/bin/${name}
       substituteAllInPlace $out/bin/${name}
@@ -36,20 +36,20 @@ let
     ];
   };
 in
-mkWrappedScript {
-  name = "syschdemd";
-  src = ./syschdemd.sh;
-  path = lib.makeBinPath [
-    "/run/wrappers" # mount
-    coreutils
-    daemonize
-    getent
-    gnugrep
-    systemd # machinectl
-    util-linux # nsenter, runuser
-    which
-    wrapper
-  ];
-  username = defaultUser.name;
-  inherit automountPath;
-}
+  mkWrappedScript {
+    name = "syschdemd";
+    src = ./syschdemd.sh;
+    path = lib.makeBinPath [
+      "/run/wrappers" # mount
+      coreutils
+      daemonize
+      getent
+      gnugrep
+      systemd # machinectl
+      util-linux # nsenter, runuser
+      which
+      wrapper
+    ];
+    username = defaultUser.name;
+    inherit automountPath;
+  }

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   nixos-enter' = config.system.build.nixos-enter.overrideAttrs (_: {
     runtimeShell = "/bin/bash";
   });
@@ -15,15 +18,14 @@ let
     mount -o remount,rw /mnt/wslg/distro
     exec /mnt/wslg/distro/${nixos-enter'}/bin/nixos-enter --root /mnt/wslg/distro "$@"
   '';
-
-in
-{
-
+in {
   config = {
     wsl.extraBin = [
       # needs to be a copy, not a symlink, to be executable from outside
-      { src = "${recovery}/bin/nixos-wsl-recovery"; copy = true; }
+      {
+        src = "${recovery}/bin/nixos-wsl-recovery";
+        copy = true;
+      }
     ];
   };
-
 }

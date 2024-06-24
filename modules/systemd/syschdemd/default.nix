@@ -1,19 +1,21 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib; {
+  options = {};
 
-  options = { };
+  config = let
+    cfg = config.wsl;
 
-  config =
-    let
-      cfg = config.wsl;
-
-      syschdemd = pkgs.callPackage ./syschdemd.nix {
-        automountPath = cfg.wslConf.automount.root;
-        defaultUser = config.users.users.${cfg.defaultUser};
-      };
-    in
+    syschdemd = pkgs.callPackage ./syschdemd.nix {
+      automountPath = cfg.wslConf.automount.root;
+      defaultUser = config.users.users.${cfg.defaultUser};
+    };
+  in
     mkIf (cfg.enable && !cfg.nativeSystemd) {
-
       wsl = {
         binShPkg = pkgs.bashInteractive;
         wslConf.user.default = "root";
@@ -30,7 +32,7 @@ with lib; {
       # Include Windows %PATH% in Linux $PATH.
       environment.extraInit = mkIf cfg.interop.includePath ''PATH="$PATH:$WSLPATH"'';
       environment.systemPackages = [
-        (pkgs.runCommand "wslpath" { } ''
+        (pkgs.runCommand "wslpath" {} ''
           mkdir -p $out/bin
           ln -s /init $out/bin/wslpath
         '')
@@ -43,7 +45,5 @@ with lib; {
           Please migrate to native systemd by removing `wsl.nativeSystemd = false;` from your configuration.
         ''
       ];
-
     };
-
 }

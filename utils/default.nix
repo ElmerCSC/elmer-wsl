@@ -1,4 +1,8 @@
-{ rustPlatform, bash, coreutils }:
+{
+  rustPlatform,
+  bash,
+  coreutils,
+}:
 rustPlatform.buildRustPackage {
   pname = "nixos-wsl-utils";
   version = "1.0.0";

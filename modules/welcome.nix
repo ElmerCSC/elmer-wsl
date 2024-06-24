@@ -1,5 +1,9 @@
-{ lib, pkgs, config, ... }:
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   welcomeMessage = pkgs.writeText "nixos-wsl-welcome-message" ''
     Welcome to your new NixOS-WSL system!
 
@@ -14,9 +18,8 @@ let
   welcome = pkgs.writeShellScriptBin "nixos-wsl-welcome" ''
     cat ${welcomeMessage}
   '';
-in
-{
+in {
   config = lib.mkIf config.wsl.enable {
-    environment.systemPackages = [ welcome ];
+    environment.systemPackages = [welcome];
   };
 }

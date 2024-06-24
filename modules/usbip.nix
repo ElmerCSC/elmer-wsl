@@ -1,21 +1,23 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   usbipd-win-auto-attach = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/dorssel/usbipd-win/v3.1.0/Usbipd/wsl-scripts/auto-attach.sh";
     hash = "sha256-KJ0tEuY+hDJbBQtJj8nSNk17FHqdpDWTpy9/DLqUFaM=";
   };
 
   cfg = config.wsl.usbip;
-in
-{
+in {
   options.wsl.usbip = {
     enable = lib.mkEnableOption "USB/IP integration";
 
     autoAttach = lib.mkOption {
       type = with lib.types; listOf str;
-      default = [ ];
-      example = [ "4-1" ];
+      default = [];
+      example = ["4-1"];
       description = "Auto attach devices with provided Bus IDs.";
     };
 
@@ -40,7 +42,7 @@ in
     systemd = {
       services."usbip-auto-attach@" = {
         description = "Auto attach device having busid %i with usbip";
-        after = [ "network.target" ];
+        after = ["network.target"];
 
         scriptArgs = "%i";
         path = with pkgs; [
