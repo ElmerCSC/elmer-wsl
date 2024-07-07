@@ -8,9 +8,9 @@ Fork of [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
 
 1. Enable WSL if you haven't done already:
 
-  - ```powershell
-    wsl --install --no-distribution
-    ```
+- ```powershell
+  wsl --install --no-distribution
+  ```
 
 2. Download `nixos-wsl.tar.gz` from [the latest release](https://github.com/mk3z/elmer-wsl/releases/latest).
 
