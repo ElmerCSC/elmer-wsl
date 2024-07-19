@@ -78,7 +78,7 @@ with lib; {
       };
       hostname = mkOption {
         type = str;
-        default = config.networking.hostName;
+        default = "elmer";
         defaultText = "config.networking.hostName";
         description = "The hostname of the WSL instance";
       };
