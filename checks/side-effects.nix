@@ -20,6 +20,7 @@ let
     modules = [
       configModule
     ];
+    specialArgs = { inherit inputs; };
   };
   wslModuleConfig = inputs.nixpkgs.lib.nixosSystem {
     inherit system;
@@ -27,6 +28,7 @@ let
       configModule
       inputs.self.nixosModules.wsl
     ];
+    specialArgs = { inherit inputs; };
   };
 in
 # Check that both configs evaluate to the same derivation

@@ -36,6 +36,7 @@
           config = { legacy ? false }: { config, lib, pkgs, ... }: {
             wsl.enable = true;
             wsl.nativeSystemd = lib.mkIf legacy false;
+            wsl.elmer.enable = true;
             programs.bash.loginShellInit = "nixos-wsl-welcome";
 
             # When the config is built from a flake, the NIX_PATH entry of nixpkgs is set to its flake version.
@@ -57,7 +58,6 @@
               ];
             system.stateVersion = config.system.nixos.release;
           };
-          elmer = inputs.elmer.packages.x86_64-linux.gui;
         in
         {
           default = nixpkgs.lib.nixosSystem {
@@ -66,7 +66,7 @@
               self.nixosModules.default
               (config { })
             ];
-            specialArgs = { inherit elmer; };
+            specialArgs = { inherit inputs; };
           };
         };
 

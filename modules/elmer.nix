@@ -1,3 +1,10 @@
-{ elmer, ... }: {
-  environment.systemPackages = [ elmer ];
+{ lib, config, inputs, ... }:
+let
+  inherit (lib) mkEnableOption mkIf;
+in
+{
+  options.wsl.elmer.enable = mkEnableOption "ElmerFEM";
+  config = mkIf config.wsl.elmer.enable {
+    environment.systemPackages = [ inputs.elmer.packages.x86_64-linux.gui ];
+  };
 }
