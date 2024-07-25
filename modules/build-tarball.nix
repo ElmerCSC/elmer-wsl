@@ -20,7 +20,7 @@ let
       ];
 
       wsl.enable = true;
-      wsl.defaultUser = "nixos";
+      wsl.defaultUser = "elmer";
       ${lib.optionalString (!config.wsl.nativeSystemd) "wsl.nativeSystemd = false;"}
 
       # This value determines the NixOS release from which the default
