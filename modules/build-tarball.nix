@@ -62,7 +62,7 @@ in
           exit 1
         fi
 
-        out=''${1:-nixos-wsl.tar.gz}
+        out=''${1:-elmer-wsl.tar.gz}
 
         root=$(mktemp -p "''${TMPDIR:-/tmp}" -d nixos-wsl-tarball.XXXXXXXXXX)
         # FIXME: fails in CI for some reason, but we don't really care because it's CI

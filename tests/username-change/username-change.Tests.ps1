@@ -8,7 +8,7 @@ Describe "Login Shell" {
   }
 
   It "should be possible to change the username" {
-    $distro.Launch("whoami") | Select-Object -Last 1 | Should -BeExactly "nixos"
+    $distro.Launch("whoami") | Select-Object -Last 1 | Should -BeExactly "elmer"
     $config = "$PSScriptRoot/username-change.nix"
 
     # Copy the new config

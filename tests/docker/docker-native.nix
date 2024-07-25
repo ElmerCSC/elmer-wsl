@@ -5,7 +5,7 @@
 
   wsl.enable = true;
 
-  users.users.nixos.extraGroups = [ "docker" ];
+  users.users.elmer.extraGroups = [ "docker" ];
 
   virtualisation.docker.enable = true;
 }

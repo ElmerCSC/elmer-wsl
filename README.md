@@ -12,12 +12,12 @@ Fork of [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
   wsl --install --no-distribution
   ```
 
-2. Download `nixos-wsl.tar.gz` from [the latest release](https://github.com/mk3z/elmer-wsl/releases/latest).
+2. Download `elmer-wsl.tar.gz` from [the latest release](https://github.com/mk3z/elmer-wsl/releases/latest).
 
 3. Import the tarball into WSL:
 
 - ```powershell
-  wsl --import Elmer $env:USERPROFILE\ElmerWSL\ nixos-wsl.tar.gz
+  wsl --import Elmer $env:USERPROFILE\Elmer-WSL\ elmer-wsl.tar.gz
   ```
 
 4. You can now run NixOS:

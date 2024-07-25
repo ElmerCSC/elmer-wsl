@@ -18,7 +18,7 @@ Describe "Shells" {
           config = mkMerge [
             {
               wsl.enable = true;
-              users.users.nixos.shell = pkgs.$package;
+              users.users.elmer.shell = pkgs.$package;
             }
             (optionalAttrs (hasAttrByPath ["programs" "$package" "enable"] options) {
               programs.$package.enable = true;

@@ -64,7 +64,7 @@ jobs:
 
       - name: Create dummy tarball
         shell: pwsh
-        run: echo $null >> Launcher\Launcher-Appx\nixos-wsl.tar.gz
+        run: echo $null >> Launcher\Launcher-Appx\elmer-wsl.tar.gz
 
       - name: Run InspectCode 🔍
         shell: pwsh

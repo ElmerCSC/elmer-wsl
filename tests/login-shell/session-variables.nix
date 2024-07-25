@@ -10,7 +10,7 @@ in
 
   wsl.enable = true;
 
-  home-manager.users.nixos = { ... }: {
+  home-manager.users.elmer = { ... }: {
     home = {
       stateVersion = ver;
       packages = [ pkgs.vim ];
