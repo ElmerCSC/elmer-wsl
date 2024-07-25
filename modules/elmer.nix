@@ -1,0 +1,3 @@
+{ elmer, ... }: {
+  environment.systemPackages = [ elmer ];
+}

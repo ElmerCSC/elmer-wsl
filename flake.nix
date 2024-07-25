@@ -1,5 +1,5 @@
 {
-  description = "NixOS WSL";
+  description = "ElmerFEM WSL";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -8,6 +8,11 @@
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
+    };
+
+    elmer = {
+      url = "github:ElmerCSC/elmerfem";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -52,24 +57,16 @@
               ];
             system.stateVersion = config.system.nixos.release;
           };
+          elmer = inputs.elmer.packages.x86_64-linux.gui;
         in
-        rec {
+        {
           default = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
               self.nixosModules.default
               (config { })
             ];
-          };
-
-          modern = nixpkgs.lib.warn "nixosConfigurations.modern has been renamed to nixosConfigurations.default" default;
-
-          legacy = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              self.nixosModules.default
-              (config { legacy = true; })
-            ];
+            specialArgs = { inherit elmer; };
           };
         };
 
