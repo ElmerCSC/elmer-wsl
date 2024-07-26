@@ -37,7 +37,7 @@
             wsl.enable = true;
             wsl.nativeSystemd = lib.mkIf legacy false;
             wsl.elmer.enable = true;
-            programs.bash.loginShellInit = "nixos-wsl-welcome";
+            programs.bash.loginShellInit = "elmer-wsl-welcome";
 
             # When the config is built from a flake, the NIX_PATH entry of nixpkgs is set to its flake version.
             # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
