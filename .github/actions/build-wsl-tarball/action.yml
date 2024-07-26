@@ -17,4 +17,4 @@ runs:
 
     - name: Build tarball 📦
       shell: bash
-      run: sudo ${{ steps.buildBuilder.outputs.derivation }}/bin/nixos-wsl-tarball-builder ${{ inputs.filename }}
+      run: sudo ${{ steps.buildBuilder.outputs.derivation }}/bin/elmer-wsl-tarball-builder ${{ inputs.filename }}

@@ -45,7 +45,7 @@ in
   # These options make no sense without the wsl-distro module anyway
   config = mkIf config.wsl.enable {
     system.build.tarballBuilder = pkgs.writeShellApplication {
-      name = "nixos-wsl-tarball-builder";
+      name = "elmer-wsl-tarball-builder";
 
       runtimeInputs = [
         pkgs.coreutils
@@ -64,23 +64,23 @@ in
 
         out=''${1:-elmer-wsl.tar.gz}
 
-        root=$(mktemp -p "''${TMPDIR:-/tmp}" -d nixos-wsl-tarball.XXXXXXXXXX)
+        root=$(mktemp -p "''${TMPDIR:-/tmp}" -d elmer-wsl-tarball.XXXXXXXXXX)
         # FIXME: fails in CI for some reason, but we don't really care because it's CI
         trap 'chattr -Rf -i "$root" || true && rm -rf "$root" || true' INT TERM EXIT
 
         chmod o+rx "$root"
 
-        echo "[NixOS-WSL] Installing..."
+        echo "[Elmer-WSL] Installing..."
         nixos-install \
           --root "$root" \
           --no-root-passwd \
           --system ${config.system.build.toplevel} \
           --substituters ""
 
-        echo "[NixOS-WSL] Adding channel..."
-        nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/nix-community/NixOS-WSL/archive/refs/heads/main.tar.gz nixos-wsl'
+        echo "[Elmer-WSL] Adding channel..."
+        nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/nix-community/Elmer-WSL/archive/refs/heads/main.tar.gz elmer-wsl'
 
-        echo "[NixOS-WSL] Adding default config..."
+        echo "[Elmer-WSL] Adding default config..."
         ${if cfg.configPath == null then ''
           install -Dm644 ${defaultConfig} "$root/etc/nixos/configuration.nix"
         '' else ''
@@ -89,7 +89,7 @@ in
           chmod -R u+w "$root/etc/nixos"
         ''}
 
-        echo "[NixOS-WSL] Compressing..."
+        echo "[Elmer-WSL] Compressing..."
         tar -C "$root" \
           -c \
           --sort=name \
