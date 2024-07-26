@@ -36,7 +36,7 @@ jobs:
           name: launcher-msix
 
       - name: Rename msix ✏️
-        run: mv */*.msixbundle NixOS-WSL-Launcher.msixbundle
+        run: mv */*.msixbundle Elmer-WSL-Launcher.msixbundle
 
       - name: Download bundle
         uses: actions/download-artifact@v4
@@ -46,7 +46,7 @@ jobs:
 
       - name: Zip launcher bundle 📦
         working-directory: launcher-bundle
-        run: zip -r ../NixOS-WSL-Launcher.zip .
+        run: zip -r ../Elmer-WSL-Launcher.zip .
 
       - name: Generate Checksums 🔑
         run: |
@@ -60,9 +60,9 @@ jobs:
           files: |
             elmer-wsl.tar.gz
             elmer-wsl.tar.gz.sha256
-            NixOS-WSL-Launcher.zip
-            NixOS-WSL-Launcher.zip.sha256
-            NixOS-WSL-Launcher.msixbundle
-            NixOS-WSL-Launcher.msixbundle.sha256
+            Elmer-WSL-Launcher.zip
+            Elmer-WSL-Launcher.zip.sha256
+            Elmer-WSL-Launcher.msixbundle
+            Elmer-WSL-Launcher.msixbundle.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

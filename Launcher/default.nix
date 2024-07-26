@@ -15,7 +15,7 @@ let
   };
 in
 stdenv.mkDerivation rec {
-  name = "NixOS-WSL-Launcher";
+  name = "Elmer-WSL-Launcher";
 
   src = ./.;
 
