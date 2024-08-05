@@ -87,7 +87,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Elmer on WSL using Nix";
-    homepage = "https://github.com/mk3z/Elmer-WSL";
+    homepage = "https://github.com/ElmerCSC/Elmer-WSL";
     license = licenses.asl20;
     maintainers = with maintainers; [ mkez ];
     platforms = [ "x86_64-linux" "x86_64-windows" ];

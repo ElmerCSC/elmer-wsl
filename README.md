@@ -12,7 +12,7 @@ Fork of [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
   wsl --install --no-distribution
   ```
 
-2. Download `elmer-wsl.tar.gz` from [the latest release](https://github.com/mk3z/elmer-wsl/releases/latest).
+2. Download `elmer-wsl.tar.gz` from [the latest release](https://github.com/ElmerCSC/elmer-wsl/releases/latest).
 
 3. Import the tarball into WSL:
 
