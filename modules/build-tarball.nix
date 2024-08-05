@@ -78,7 +78,7 @@ in
           --substituters ""
 
         echo "[Elmer-WSL] Adding channel..."
-        nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/nix-community/Elmer-WSL/archive/refs/heads/main.tar.gz elmer-wsl'
+        nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/mk3z/Elmer-WSL/archive/refs/heads/main.tar.gz elmer-wsl'
 
         echo "[Elmer-WSL] Adding default config..."
         ${if cfg.configPath == null then ''
