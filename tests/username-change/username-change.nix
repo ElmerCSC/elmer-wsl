@@ -1,6 +1,6 @@
 {
   imports = [
-    <nixos-wsl/modules>
+    <elmer-wsl/modules>
   ];
 
   wsl.enable = true;

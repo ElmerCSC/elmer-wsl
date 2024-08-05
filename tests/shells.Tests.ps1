@@ -12,7 +12,7 @@ Describe "Shells" {
         { pkgs, lib, config, options, ... }:
         with lib; {
           imports = [
-            <nixos-wsl/modules>
+            <elmer-wsl/modules>
           ];
 
           config = mkMerge [

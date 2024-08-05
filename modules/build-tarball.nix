@@ -16,7 +16,7 @@ let
     {
       imports = [
         # include NixOS-WSL modules
-        <nixos-wsl/modules>
+        <elmer-wsl/modules>
       ];
 
       wsl.enable = true;

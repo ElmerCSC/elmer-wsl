@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    <nixos-wsl/modules>
+    <elmer-wsl/modules>
     "${builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${ver}.tar.gz"}/nixos"
   ];
 
