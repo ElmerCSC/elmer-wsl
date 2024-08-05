@@ -86,10 +86,10 @@ stdenv.mkDerivation rec {
   dontStrip = true; # strip breaks the assemblies
 
   meta = with lib; {
-    description = "WSL Distribution Launcher for NixOS-WSL";
-    homepage = "https://github.com/nix-community/NixOS-WSL";
+    description = "Elmer on WSL using Nix";
+    homepage = "https://github.com/mk3z/Elmer-WSL";
     license = licenses.asl20;
-    maintainers = with maintainers; [ nzbr ];
+    maintainers = with maintainers; [ mkez ];
     platforms = [ "x86_64-linux" "x86_64-windows" ];
   };
 }
