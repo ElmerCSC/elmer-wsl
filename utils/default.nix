@@ -7,7 +7,7 @@ rustPlatform.buildRustPackage {
   cargoLock.lockFile = ./Cargo.lock;
 
   env = {
-    NIXOS_WSL_SH = "${bash}/bin/sh";
-    NIXOS_WSL_ENV = "${coreutils}/bin/env";
+    ELMER_WSL_SH = "${bash}/bin/sh";
+    ELMER_WSL_ENV = "${coreutils}/bin/env";
   };
 }

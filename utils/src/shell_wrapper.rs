@@ -42,10 +42,10 @@ fn real_main() -> anyhow::Result<()> {
             }
 
             // Load the environment from /etc/set-environment
-            let output = Command::new(env!("NIXOS_WSL_SH"))
+            let output = Command::new(env!("ELMER_WSL_SH"))
                 .args(&[
                     "-c",
-                    &format!(". /etc/set-environment && {} -0", env!("NIXOS_WSL_ENV")),
+                    &format!(". /etc/set-environment && {} -0", env!("ELMER_WSL_ENV")),
                 ])
                 .output()
                 .context("when reading /etc/set-environment")?;
