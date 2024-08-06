@@ -10,20 +10,20 @@ with lib;
       {
         release = mkOption {
           internal = true;
-          description = "the NixOS-WSL release";
+          description = "the Elmer-WSL release";
           type = str;
           default = elemAt versionFile 0;
         };
         rev = mkOption {
           internal = true;
-          description = "the NixOS-WSL git revision";
+          description = "the Elmer-WSL git revision";
           type = str;
           default = elemAt versionFile 1;
         };
         systemd = mkOption {
           internal = true;
           type = enum [ "native" "syschdemd" ];
-          description = "the systemd implementation used by NixOS-WSL";
+          description = "the systemd implementation used by Elmer-WSL";
           default = if config.wsl.nativeSystemd then "native" else "syschdemd";
         };
       };
@@ -39,11 +39,11 @@ with lib;
           maxlen = foldl (acc: opt: max acc (stringLength opt)) 0 ((attrNames opts) ++ [ "help" "json" ]);
           rightPad = text: "${text}${fixedWidthString (2 + maxlen - (stringLength text)) " " ""}";
         in
-        pkgs.writeShellScriptBin "nixos-wsl-version" ''
+        pkgs.writeShellScriptBin "elmer-wsl-version" ''
           for arg in "$@"; do
             case $arg in
               --help)
-                echo "Usage: nixos-wsl-version [option]"
+                echo "Usage: elmer-wsl-version [option]"
                 echo "Options:"
                 echo -e "  --${rightPad "help"}Show this help message"
                 ${concatStringsSep "\n" (
@@ -72,7 +72,7 @@ with lib;
                 ;;
             esac
           done
-          echo NixOS-WSL ${config.wsl.version.release} ${config.wsl.version.rev} ${config.wsl.version.systemd}
+          echo Elmer-WSL ${config.wsl.version.release} ${config.wsl.version.rev} ${config.wsl.version.systemd}
         ''
       )
     ];

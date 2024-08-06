@@ -13,7 +13,7 @@ public static class VersionHelper {
             try {
                 var output = WslApiLoader.WslLaunchGetOutput(
                     DistributionInfo.Name,
-                    "/bin/sh --login -c \"nixos-wsl-version --json\"",
+                    "/bin/sh --login -c \"elmer-wsl-version --json\"",
                     false,
                     out uint _,
                     true
