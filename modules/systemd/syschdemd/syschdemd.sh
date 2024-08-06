@@ -3,7 +3,7 @@ set -euo pipefail
 
 [ "${NIXOS_WSL_DEBUG:-}" == "1" ] && set -x
 
-rundir="/run/nixos-wsl"
+rundir="/run/elmer-wsl"
 pidfile="$rundir/unshare.pid"
 
 ensure_root() {
