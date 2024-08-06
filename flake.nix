@@ -49,7 +49,7 @@
                 channels = pkgs.runCommand "default-channels" { } ''
                   mkdir -p $out
                   ln -s ${pkgs.path} $out/nixos
-                  ln -s ${./.} $out/nixos-wsl
+                  ln -s ${./.} $out/elmer-wsl
                 '';
               in
               [
