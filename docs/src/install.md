@@ -2,33 +2,33 @@
 
 ## System requirements
 
-NixOS-WSL is tested with the Windows Store version of WSL 2, which is now available on all supported Windows releases (both 10 and 11).
+Elmer-WSL is tested with the Windows Store version of WSL 2, which is now available on all supported Windows releases (both 10 and 11).
 Support for older "inbox" versions is best-effort.
 
-## Install NixOS-WSL
+## Install Elmer-WSL
 
-First, [download the latest release](https://github.com/nix-community/NixOS-WSL/releases/latest).
+First, [download the latest release](https://github.com/ElmerCSC/elmer-wsl/releases/latest).
 
 Then open up a PowerShell and run:
 
 ```powershell
-wsl --import NixOS $env:USERPROFILE\NixOS\ elmer-wsl.tar.gz
+wsl --version 2 --import Elmer $env:USERPROFILE\Elmer-WSL\ elmer-wsl.tar.gz
 ```
 
 Or for Command Prompt:
 
 ```cmd
-wsl --import NixOS %USERPROFILE%\NixOS\ elmer-wsl.tar.gz
+wsl --version 2 --import Elmer %USERPROFILE%\Elmer-WSL\ elmer-wsl.tar.gz
 ```
 
-This sets up a new WSL distribution `NixOS` that is installed in a directory called `NixOS` inside your user directory.
+This sets up a new WSL distribution `Elmer` that is installed in a directory called `Elmer-WSL` inside your user directory.
 `elmer-wsl.tar.gz` is the path to the file you downloaded earlier.
 You can adjust the installation path and distribution name to your liking.
 
 To get a shell in your NixOS environment, use:
 
 ```powershell
-wsl -d NixOS
+wsl -d Elmer
 ```
 
 If you chose a different name for your distro during import, adjust this command accordingly.
@@ -41,8 +41,8 @@ After the initial installation, you need to update your channels once, to be abl
 sudo nix-channel --update
 ```
 
-If you want to make NixOS your default distribution, you can do so with
+If you want to make Elmer-WSL your default distribution, you can do so with
 
 ```powershell
-wsl -s NixOS
+wsl -s Elmer
 ```
