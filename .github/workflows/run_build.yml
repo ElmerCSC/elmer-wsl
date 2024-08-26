@@ -8,6 +8,8 @@ jobs:
     name: Tarball 🛠️
     runs-on: ubuntu-latest
     steps:
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
       - name: Checkout
         uses: actions/checkout@v4
         with:

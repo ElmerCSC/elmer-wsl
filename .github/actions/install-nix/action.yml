@@ -16,4 +16,7 @@ runs:
       if: ${{ steps.check-nix.outputs.nix-found != 'true' }}
       uses: cachix/install-nix-action@v27
       with:
+        extra_nix_config: |
+          trusted-public-keys = elmerfem.cachix.org-1:nWIb5JzEzC2/W6qiuaC0urJRG+S7KvTn9WatX43gkHk= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+          substituters = https://elmerfem.cachix.org https://cache.nixos.org/
         github_access_token: ${{ github.token }}
