@@ -29,17 +29,15 @@
         "mmg": "mmg",
         "mumps": "mumps",
         "nix-filter": "nix-filter",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "parmmg": "parmmg"
       },
       "locked": {
-        "lastModified": 1723481119,
-        "narHash": "sha256-a9gUc6XAkRWBsHg0G0zrzDeNiWmEmCSprSOgiy60+JQ=",
+        "lastModified": 1724677088,
+        "narHash": "sha256-eRCiv27EKmSVsETkzS5SmlN45VdYoJgsIMJEXe0Jbp0=",
         "owner": "ElmerCSC",
         "repo": "elmerfem",
-        "rev": "e1b3d1537168e6d2b11f65356c70ecc674dc866c",
+        "rev": "a178076a0cbadc2aa06c5b11108357698a4da715",
         "type": "github"
       },
       "original": {
@@ -248,6 +246,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1724242322,
+        "narHash": "sha256-HMpK7hNjhEk4z5SFg5UtxEio9OWFocHdaQzCfW1pE7w=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "224042e9a3039291f22f4f2ded12af95a616cca0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1723400035,
         "narHash": "sha256-WoKZDlBEdMhP+hjquBAh0BhUJbcH2+U8g2mHOr1mv8I=",
         "owner": "NixOS",
@@ -294,7 +308,7 @@
         "elmer": "elmer",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_6",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
