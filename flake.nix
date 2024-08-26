@@ -16,6 +16,15 @@
     };
   };
 
+  nixConfig = {
+    extra-substituters = [
+      "https://elmerfem.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "elmerfem.cachix.org-1:nWIb5JzEzC2/W6qiuaC0urJRG+S7KvTn9WatX43gkHk="
+    ];
+  };
+
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     with nixpkgs.lib;
     {
