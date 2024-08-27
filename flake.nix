@@ -73,9 +73,9 @@
             system = "x86_64-linux";
             modules = [
               self.nixosModules.default
+              { nixpkgs.overlays = [ inputs.elmer.overlay ]; }
               (config { })
             ];
-            specialArgs = { inherit inputs; };
           };
         };
 

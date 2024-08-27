@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 let
   inherit (lib) mkEnableOption mkIf;
 in
@@ -13,8 +13,6 @@ in
         "elmerfem.cachix.org-1:nWIb5JzEzC2/W6qiuaC0urJRG+S7KvTn9WatX43gkHk="
       ];
     };
-
-    nixpkgs.overlays = [ inputs.elmer.overlay ];
 
     environment.systemPackages = with pkgs; [ elmer-gui mpi ];
   };
