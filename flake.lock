@@ -33,11 +33,11 @@
         "parmmg": "parmmg"
       },
       "locked": {
-        "lastModified": 1724677088,
-        "narHash": "sha256-eRCiv27EKmSVsETkzS5SmlN45VdYoJgsIMJEXe0Jbp0=",
+        "lastModified": 1724740583,
+        "narHash": "sha256-XUFJ3JDbW0IULg2bS7mvoy7n8EcAtHy/hTQ7thuQ+CU=",
         "owner": "ElmerCSC",
         "repo": "elmerfem",
-        "rev": "a178076a0cbadc2aa06c5b11108357698a4da715",
+        "rev": "23b6c208c4f0e25f5d3b69fca602c432d4ba1da7",
         "type": "github"
       },
       "original": {
