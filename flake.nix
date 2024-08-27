@@ -48,6 +48,8 @@
             wsl.elmer.enable = true;
             programs.bash.loginShellInit = "elmer-wsl-welcome";
 
+            nixpkgs.overlays = [ inputs.elmer.overlay ];
+
             # When the config is built from a flake, the NIX_PATH entry of nixpkgs is set to its flake version.
             # Per default the resulting systems aren't flake-enabled, so rebuilds would fail.
             # Note: This does not affect the module being imported into your own flake.
@@ -73,7 +75,6 @@
             system = "x86_64-linux";
             modules = [
               self.nixosModules.default
-              { nixpkgs.overlays = [ inputs.elmer.overlay ]; }
               (config { })
             ];
           };

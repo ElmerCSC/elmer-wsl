@@ -12,7 +12,9 @@ let
     # https://github.com/nix-community/NixOS-WSL
 
     { config, lib, pkgs, ... }:
-
+    let
+      elmerfem = import <elmerfem>;
+    in
     {
       imports = [
         # include NixOS-WSL modules
@@ -23,6 +25,8 @@ let
       wsl.defaultUser = "elmer";
       wsl.elmer.enable = true;
       ${lib.optionalString (!config.wsl.nativeSystemd) "wsl.nativeSystemd = false;"}
+
+      nixpkgs.overlays = [ elmerfem.overlay ];
 
       # This value determines the NixOS release from which the default
       # settings for stateful data, like file locations and database versions
@@ -78,8 +82,9 @@ in
           --system ${config.system.build.toplevel} \
           --substituters ""
 
-        echo "[Elmer-WSL] Adding channel..."
+        echo "[Elmer-WSL] Adding channels..."
         nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/ElmerCSC/Elmer-WSL/archive/refs/heads/main.tar.gz elmer-wsl'
+        nixos-enter --root "$root" --command 'HOME=/root nix-channel --add https://github.com/ElmerCSC/elmerfem/archive/refs/heads/devel.tar.gz elmerfem'
 
         echo "[Elmer-WSL] Adding default config..."
         ${if cfg.configPath == null then ''
