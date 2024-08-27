@@ -14,6 +14,8 @@ in
       ];
     };
 
-    environment.systemPackages = [ inputs.elmer.packages.x86_64-linux.gui pkgs.mpi ];
+    nixpkgs.overlays = [ inputs.elmer.overlay ];
+
+    environment.systemPackages = with pkgs; [ elmer-gui mpi ];
   };
 }
