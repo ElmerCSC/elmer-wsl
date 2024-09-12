@@ -4,7 +4,7 @@ ElmerFEM in WSL
 
 Fork of [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
 
-## Quick Start
+## Installation
 
 1. Enable WSL if you haven't done already:
 
@@ -25,6 +25,23 @@ Fork of [NixOS-WSL](https://github.com/nix-community/NixOS-WSL)
 - ```powershell
   wsl -d Elmer
   ```
+
+## Updating
+
+To update to the newest Elmer-WSL version, run these commands in WSL:
+
+```bash
+sudo nix-channel --update
+sudo nixos-rebuild switch
+```
+
+## Uninstall
+
+WARNING: This will delete the filesystem of Elmer-WSL.
+
+```bash
+wsl --unregister Elmer
+```
 
 ## License
 
