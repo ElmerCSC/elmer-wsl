@@ -12,13 +12,13 @@ First, [download the latest release](https://github.com/ElmerCSC/elmer-wsl/relea
 Then open up a PowerShell and run:
 
 ```powershell
-wsl --version 2 --import Elmer $env:USERPROFILE\Elmer-WSL\ elmer-wsl.tar.gz
+wsl --import Elmer --version 2 $env:USERPROFILE\Elmer-WSL\ elmer-wsl.tar.gz
 ```
 
 Or for Command Prompt:
 
 ```cmd
-wsl --version 2 --import Elmer %USERPROFILE%\Elmer-WSL\ elmer-wsl.tar.gz
+wsl --import Elmer --version 2  %USERPROFILE%\Elmer-WSL\ elmer-wsl.tar.gz
 ```
 
 This sets up a new WSL distribution `Elmer` that is installed in a directory called `Elmer-WSL` inside your user directory.
