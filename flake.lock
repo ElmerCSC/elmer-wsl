@@ -34,11 +34,11 @@
         "parmmg": "parmmg"
       },
       "locked": {
-        "lastModified": 1724765091,
-        "narHash": "sha256-gK6dfL22Zmwkc2eFcvV1dwLdmQmH6UB6Ve/HnzZ+mNA=",
+        "lastModified": 1726129260,
+        "narHash": "sha256-ID+J8VrZH9asODFg7+GLrkjPP2YM6XRMNffSbyguqGg=",
         "owner": "ElmerCSC",
         "repo": "elmerfem",
-        "rev": "cd0369d1ff2beab73ddf8ec4ba007353a4456d7a",
+        "rev": "583175bfd1790cfac5948defb625a0188ca4fbb8",
         "type": "github"
       },
       "original": {
@@ -261,11 +261,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725693463,
-        "narHash": "sha256-ZPzhebbWBOr0zRWW10FfqfbJlan3G96/h3uqhiFqmwg=",
+        "lastModified": 1724242322,
+        "narHash": "sha256-HMpK7hNjhEk4z5SFg5UtxEio9OWFocHdaQzCfW1pE7w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "68e7dce0a6532e876980764167ad158174402c6f",
+        "rev": "224042e9a3039291f22f4f2ded12af95a616cca0",
         "type": "github"
       },
       "original": {
