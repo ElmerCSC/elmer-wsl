@@ -43,6 +43,20 @@ WARNING: This will delete the filesystem of Elmer-WSL.
 wsl --unregister Elmer
 ```
 
+## For developers
+
+### Updating the included Elmer version
+
+`nix flake lock --update-input elmer`.
+
+### Updating Nixos-WSL
+
+Manually merge new changes from upstream.
+
+### New release
+
+Create a new tag and push it. The GitHub workflow will create a new release and the needed files.
+
 ## License
 
 Apache License, Version 2.0. See `LICENSE` or <http://www.apache.org/licenses/LICENSE-2.0.html> for details.
